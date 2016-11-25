@@ -1,1 +1,68 @@
-index.html
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="container">
+		<div class="row">
+		<h2>Reminder</h2>
+		<button class="btn btn-small btn-default addTask"><span class="glyphicon glyphicon-plus"></span></button>
+		<div class="col-md-6">
+			<div class="panel-group">
+			    <div class="panel panel-default">
+			      <div class="panel-heading">
+			        <h4 class="panel-title">
+			          <a data-toggle="collapse" href="#collapse1">Collapsible list group</a>
+			        </h4>
+			      </div>
+			      <div id="collapse1" class="panel-collapse collapse">
+			        <ul class="list-group">
+			          <li class="list-group-item">One</li>
+			          <li class="list-group-item">Two</li>
+			          <li class="list-group-item">Three</li>
+			        </ul>
+			        <div class="panel-footer">Footer</div>
+			      </div>
+			    </div>
+			</div>
+			<table class="table table-striped">
+			    <thead>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td><input type="checkbox" /></td>
+			        <td>Task 1</td>
+			      </tr>
+			      <tr>
+			        <td><input type="checkbox" /></td>
+			        <td>Task 2</td>
+			      </tr>
+			    </tbody>
+			  </table>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<button class="btn btn-default">save task done</button>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
+
+<script>
+	$('.addTask').click(function(){
+		$("tbody").append("<tr class='add-new'><td><input type='checkbox' /></td><td><input type='text'></td>" +
+							"<td><input type='button' class='btn btn-default' value='save task'><input type='button' class='btn btn-default' id='btn-del' value='delete'></td>"+
+							"</tr>");
+	})
+
+	$(document).ready(function () {
+		$('#btn-del').click(function(){
+			$(this).parentsUntil($( '.add-new' )).remove();
+		})
+	})
+
+</script>
